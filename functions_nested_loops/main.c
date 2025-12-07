@@ -3,11 +3,17 @@
 
 int main(void)
 {
-	printf("%d\n", _abs(-1));
-	printf("%d\n", _abs(0));
-	printf("%d\n", _abs(1));
-	printf("%d\n", _abs(-98));
+	int r;
 
+	r = print_last_digit(98);
+	printf(" -> %d\n", r);
+
+	r = print_last_digit(0);
+	printf(" -> %d\n", r);
+
+	r = print_last_digit(-1024);
+	printf(" -> %d\n", r);
+	
 	return (0);
 }
 
