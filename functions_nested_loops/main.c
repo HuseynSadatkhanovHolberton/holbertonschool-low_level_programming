@@ -1,18 +1,18 @@
 #include "main.h"
-#include <stdio.h> /* for local test output */
+#include <stdio.h> /* only for local testing */
 
 int main(void)
 {
 	int r;
 
-	r = _isalpha('H');
-	printf("%d\n", r);
-	r = _isalpha('o');
-	printf("%d\n", r);
-	r = _isalpha(108); /* 'l' */
-	printf("%d\n", r);
-	r = _isalpha('!');
-	printf("%d\n", r);
+	r = print_sign(98);
+	printf(" -> %d\n", r);
+
+	r = print_sign(0);
+	printf(" -> %d\n", r);
+
+	r = print_sign(-7);
+	printf(" -> %d\n", r);
 
 	return (0);
 }
