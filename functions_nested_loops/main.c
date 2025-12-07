@@ -3,16 +3,10 @@
 
 int main(void)
 {
-	int r;
-
-	r = print_sign(98);
-	printf(" -> %d\n", r);
-
-	r = print_sign(0);
-	printf(" -> %d\n", r);
-
-	r = print_sign(-7);
-	printf(" -> %d\n", r);
+	printf("%d\n", _abs(-1));
+	printf("%d\n", _abs(0));
+	printf("%d\n", _abs(1));
+	printf("%d\n", _abs(-98));
 
 	return (0);
 }
