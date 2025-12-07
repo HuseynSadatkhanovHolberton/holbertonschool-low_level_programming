@@ -7,10 +7,10 @@
  */
 int main(void)
 {
-	print_diagonal(0);
-	print_diagonal(2);
-	print_diagonal(5);
-	print_diagonal(-3);
+	print_square(0);
+	print_square(2);
+	print_square(5);
+	print_square(-4);
 	return (0);
 }
 
