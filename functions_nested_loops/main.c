@@ -1,15 +1,17 @@
 #include "main.h"
-#include <stdio.h> /* only for local test output */
+#include <stdio.h> /* for local test output */
 
 int main(void)
 {
 	int r;
 
-	r = _islower('H');
+	r = _isalpha('H');
 	printf("%d\n", r);
-	r = _islower('o');
+	r = _isalpha('o');
 	printf("%d\n", r);
-	r = _islower(108); /* ASCII for 'l' */
+	r = _isalpha(108); /* 'l' */
+	printf("%d\n", r);
+	r = _isalpha('!');
 	printf("%d\n", r);
 
 	return (0);
