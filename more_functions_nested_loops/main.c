@@ -1,16 +1,7 @@
-#include "main.h"
+#include "9-fizz_buzz.c"
 
-/**
- * main - check the code
- *
- * Return: Always 0.
- */
 int main(void)
 {
-	print_square(0);
-	print_square(2);
-	print_square(5);
-	print_square(-4);
-	return (0);
+    return (main());
 }
 
