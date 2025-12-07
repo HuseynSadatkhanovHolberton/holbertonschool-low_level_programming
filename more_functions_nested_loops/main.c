@@ -3,10 +3,10 @@
 
 int main(void)
 {
-	printf("%d\n", _isupper('A')); /* should print 1 */
-	printf("%d\n", _isupper('Z')); /* should print 1 */
-	printf("%d\n", _isupper('a')); /* should print 0 */
-	printf("%d\n", _isupper('0')); /* should print 0 */
+	printf("%d\n", _isdigit('0')); /* 1 */
+	printf("%d\n", _isdigit('9')); /* 1 */
+	printf("%d\n", _isdigit('a')); /* 0 */
+	printf("%d\n", _isdigit(53));  /* 1 (ASCII for '5') */
 
 	return (0);
 }
