@@ -1,7 +1,8 @@
 #include "main.h"
+#include <limits.h>
 
 /**
- * _atoi - converts a string to an integer
+ * _atoi - convert a string to an integer
  * @s: string to convert
  *
  * Return: converted integer
@@ -10,24 +11,44 @@ int _atoi(char *s)
 {
 	int i = 0;
 	int sign = 1;
-	int result = 0;
 	int started = 0;
+	int result = 0;
+	int digit;
 
 	while (s[i] != '\0')
 	{
-		if (s[i] == '-' && !started)
+		if (!started && s[i] == '-')
 			sign *= -1;
+		else if (!started && s[i] == '+')
+			;
 		else if (s[i] >= '0' && s[i] <= '9')
 		{
 			started = 1;
-			result = result * 10 + (s[i] - '0');
+			digit = s[i] - '0';
+
+			/* Prevent overflow for: result = result * 10 - digit */
+			if (result < (INT_MIN + digit) / 10)
+				break;
+
+			result = result * 10 - digit;
 		}
 		else if (started)
+		{
 			break;
+		}
+
 		i++;
 	}
 
-	return (result * sgn);
-}
+	if (!started)
+		return (0);
 
+	if (sign == -1)
+		return (result); /* already negative */
+
+	/* sign is positive: return -result safely */
+	if (result == INT_MIN)
+		return (INT_MIN); /* can't negate safely; avoid overflow */
+	return (-result);
+}
 
