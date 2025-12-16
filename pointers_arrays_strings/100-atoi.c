@@ -26,7 +26,6 @@ int _atoi(char *s)
 			started = 1;
 			digit = s[i] - '0';
 
-			/* Prevent overflow for: result = result * 10 - digit */
 			if (result < (INT_MIN + digit) / 10)
 				break;
 
@@ -42,19 +41,9 @@ int _atoi(char *s)
 
 	if (!started)
 		return (0);
-
 	if (sign == -1)
-		return (result); /* already negative */
-
-	/* sign is positive: return -result safely */
+		return (result);
 	if (result == INT_MIN)
-		return (INT_MIN); /* can't negate safely; avoid overflow */
+		return (INT_MIN);
 	return (-result);
 }
-
-
-
-
-
-
-
