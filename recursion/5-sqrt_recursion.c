@@ -6,6 +6,11 @@
  * @i: the current guess
  *
  * Return: the natural square root, or -1 if none exists
+ * _sqrt_helper - checks for the natural square root recursively
+ * @n: number to calculate the square root of
+ * @i: current guess
+ *
+ * Return: the natural square root, or -1 if none exists
  */
 int _sqrt_helper(int n, int i)
 {
