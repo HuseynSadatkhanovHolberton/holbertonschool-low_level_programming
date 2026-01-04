@@ -17,14 +17,7 @@ struct dog
 /* typedef for struct dog */
 typedef struct dog dog_t;
 
-/* Prototype for init_dog */
+/* Function prototypes */
 void init_dog(struct dog *d, char *name, float age, char *owner);
-
-/* Prototype for print_dog */
-void print_dog(struct dog *d);
-
-/* Prototype for new_dog */
-dog_t *new_dog(char *name, float age, char *owner);
-
-#endif /* DOG_H */
+void print_dog(stru_
 

@@ -3,15 +3,22 @@
 
 int main(void)
 {
-    dog_t my_dog;
+	dog_t *d1;
+	dog_t d2;
 
-    my_dog.name = "Poppy";
-    my_dog.age = 3.5;
-    my_dog.owner = "Bob";
+	/* Test init_dog */
+	init_dog(&d2, "Poppy", 3.5, "Bob");
+	print_dog(&d2);
 
-    printf("My name is %s, and I am %.1f :) - Woof!\n",
-           my_dog.name, my_dog.age);
+	/* Test new_dog */
+	d1 = new_dog("Ghost", 4.75, "Jon Snow");
+	print_dog(d1);
 
-    return (0);
+	/* Free memory from new_dog */
+	free(d1->name);
+	free(d1->owner);
+	free(d1);
+
+	return (0);
 }
 
