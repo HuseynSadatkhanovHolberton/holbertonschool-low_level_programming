@@ -2,6 +2,33 @@
 #include "dog.h"
 
 /**
+ * _strdup - duplicates a string (like allowed strcpy/strlen)
+ * @str: string to duplicate
+ *
+ * Return: pointer to new string, or NULL if it fails
+ */
+static char *_strdup(char *str)
+{
+	char *copy;
+	int i, len;
+
+	if (str == 0)
+		return (0);
+
+	for (len = 0; str[len]; len++)
+		;
+	copy = malloc(len + 1);
+	if (copy == 0)
+		return (0);
+
+	for (i = 0; str[i]; i++)
+		copy[i] = str[i];
+	copy[i] = '\0';
+
+	return (copy);
+}
+
+/**
  * new_dog - creates a new dog
  * @name: name of the dog
  * @age: age of the dog
@@ -12,46 +39,27 @@
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *d;
-	char *name_copy;
-	char *owner_copy;
-	int i;
 
-	/* Allocate memory for struct */
 	d = malloc(sizeof(dog_t));
 	if (d == 0)
 		return (0);
 
-	/* Allocate and copy name manually */
-	for (i = 0; name[i]; i++)
-		;
-	name_copy = malloc(i + 1);
-	if (name_copy == 0)
+	d->name = _strdup(name);
+	if (d->name == 0)
 	{
 		free(d);
 		return (0);
 	}
-	for (i = 0; name[i]; i++)
-		name_copy[i] = name[i];
-	name_copy[i] = '\0';
 
-	/* Allocate and copy owner manually */
-	for (i = 0; owner[i]; i++)
-		;
-	owner_copy = malloc(i + 1);
-	if (owner_copy == 0)
+	d->owner = _strdup(owner);
+	if (d->owner == 0)
 	{
-		free(name_copy);
+		free(d->name);
 		free(d);
 		return (0);
 	}
-	for (i = 0; owner[i]; i++)
-		owner_copy[i] = owner[i];
-	owner_copy[i] = '\0';
 
-	/* Assign values */
-	d->name = name_copy;
 	d->age = age;
-	d->owner = owner_copy;
 
 	return (d);
 }
