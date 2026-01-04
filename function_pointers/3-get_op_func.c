@@ -1,10 +1,10 @@
+#include <stddef.h>
 #include "3-calc.h"
 
 /**
  * get_op_func - selects the correct operation function
  * @s: operator passed as argument
- *
- * Return: pointer to the matching function, or NULL
+ * Return: pointer to the matching function or NULL
  */
 int (*get_op_func(char *s))(int, int)
 {
@@ -20,7 +20,7 @@ int (*get_op_func(char *s))(int, int)
 
 	while (ops[i].op)
 	{
-		if (ops[i].op[0] == s[0] && s[1] == '\0')
+		if (*(ops[i].op) == *s && *(s + 1) == '\0')
 			return (ops[i].f);
 		i++;
 	}
