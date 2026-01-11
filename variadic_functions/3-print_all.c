@@ -3,11 +3,6 @@
 #include <stdio.h>
 
 /**
- * struct printer - associates a format specifier with a print function
- */
-struct printer;
-
-/**
  * print_char - prints a character
  * @ap: argument list
  */
@@ -58,6 +53,8 @@ void print_all(const char * const format, ...)
 	va_list ap;
 	unsigned int i = 0, j;
 	char *sep = "";
+
+	/* struct printer defined and documented in variadic_functions.h */
 	struct printer p[] = {
 		{'c', print_char},
 		{'i', print_int},
