@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 /**
- * print_char - prints a char
+ * print_char - prints a character
  * @ap: argument list
  */
 void print_char(va_list ap)
@@ -12,7 +12,7 @@ void print_char(va_list ap)
 }
 
 /**
- * print_int - prints an int
+ * print_int - prints an integer
  * @ap: argument list
  */
 void print_int(va_list ap)
@@ -37,14 +37,14 @@ void print_string(va_list ap)
 {
 	char *s = va_arg(ap, char *);
 
-	if (!s)
+	if (s == NULL)
 		s = "(nil)";
 	printf("%s", s);
 }
 
 /**
  * print_all - prints anything
- * @format: list of argument types
+ * @format: list of argument types passed to the function
  *
  * Return: nothing
  */
