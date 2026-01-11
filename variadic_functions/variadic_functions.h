@@ -4,9 +4,9 @@
 #include <stdarg.h>
 
 /**
- * struct printer - maps a format specifier to a print function
+ * struct printer - associates a format specifier with a print function
  * @c: format specifier character
- * @f: function pointer to print the argument
+ * @f: function pointer to printing function
  */
 struct printer
 {
@@ -26,7 +26,6 @@ void print_strings(const char *separator, const unsigned int n, ...);
 /* Task 3 */
 void print_all(const char * const format, ...);
 
-/* Provided by checker */
 int _putchar(char c);
 
 #endif
