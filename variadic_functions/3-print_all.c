@@ -3,6 +3,46 @@
 #include <stdio.h>
 
 /**
+ * print_char - prints a char
+ * @ap: argument list
+ */
+void print_char(va_list ap)
+{
+	printf("%c", va_arg(ap, int));
+}
+
+/**
+ * print_int - prints an int
+ * @ap: argument list
+ */
+void print_int(va_list ap)
+{
+	printf("%d", va_arg(ap, int));
+}
+
+/**
+ * print_float - prints a float
+ * @ap: argument list
+ */
+void print_float(va_list ap)
+{
+	printf("%f", va_arg(ap, double));
+}
+
+/**
+ * print_string - prints a string
+ * @ap: argument list
+ */
+void print_string(va_list ap)
+{
+	char *s = va_arg(ap, char *);
+
+	if (!s)
+		s = "(nil)";
+	printf("%s", s);
+}
+
+/**
  * print_all - prints anything
  * @format: list of argument types
  *
@@ -19,17 +59,6 @@ void print_all(const char * const format, ...)
 		char c;
 		void (*f)(va_list);
 	} printer_t;
-
-	void print_char(va_list a) { printf("%c", va_arg(a, int)); }
-	void print_int(va_list a) { printf("%d", va_arg(a, int)); }
-	void print_float(va_list a) { printf("%f", va_arg(a, double)); }
-	void print_string(va_list a)
-	{
-		char *s = va_arg(a, char *);
-		if (!s)
-			s = "(nil)";
-		printf("%s", s);
-	}
 
 	printer_t p[] = {
 		{'c', print_char},
