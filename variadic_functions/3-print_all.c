@@ -53,13 +53,6 @@ void print_all(const char * const format, ...)
 	va_list ap;
 	unsigned int i = 0, j;
 	char *sep = "";
-
-	struct printer
-	{
-		char c;
-		void (*f)(va_list);
-	};
-
 	struct printer p[] = {
 		{'c', print_char},
 		{'i', print_int},
