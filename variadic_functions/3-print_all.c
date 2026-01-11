@@ -10,40 +10,54 @@
  */
 void print_all(const char * const format, ...)
 {
-	va_list args;
-	unsigned int i = 0;
+	va_list ap;
+	unsigned int i = 0, j;
 	char *sep = "";
-	char *s;
 
-	va_start(args, format);
+	typedef struct printer
+	{
+		char c;
+		void (*f)(va_list);
+	} printer_t;
+
+	void print_char(va_list a) { printf("%c", va_arg(a, int)); }
+	void print_int(va_list a) { printf("%d", va_arg(a, int)); }
+	void print_float(va_list a) { printf("%f", va_arg(a, double)); }
+	void print_string(va_list a)
+	{
+		char *s = va_arg(a, char *);
+		if (!s)
+			s = "(nil)";
+		printf("%s", s);
+	}
+
+	printer_t p[] = {
+		{'c', print_char},
+		{'i', print_int},
+		{'f', print_float},
+		{'s', print_string}
+	};
+
+	va_start(ap, format);
 
 	while (format && format[i])
 	{
-		while (format[i] == 'c' || format[i] == 'i'
-		       || format[i] == 'f' || format[i] == 's')
+		j = 0;
+		while (j < 4)
 		{
-			printf("%s", sep);
-			sep = ", ";
-
-			if (format[i] == 'c')
-				printf("%c", va_arg(args, int));
-			if (format[i] == 'i')
-				printf("%d", va_arg(args, int));
-			if (format[i] == 'f')
-				printf("%f", va_arg(args, double));
-			if (format[i] == 's')
+			if (format[i] == p[j].c)
 			{
-				s = va_arg(args, char *);
-				if (!s)
-					s = "(nil)";
-				printf("%s", s);
+				printf("%s", sep);
+				p[j].f(ap);
+				sep = ", ";
+				break;
 			}
-			break;
+			j++;
 		}
 		i++;
 	}
 
-	va_end(args);
+	va_end(ap);
 	printf("\n");
 }
 
