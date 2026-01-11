@@ -43,6 +43,12 @@ void print_string(va_list ap)
 }
 
 /**
+ * struct printer - associates a format specifier with a print function
+ * @c: format specifier character
+ * @f: function pointer to the printing function
+ */
+
+/**
  * print_all - prints anything
  * @format: list of argument types passed to the function
  *
