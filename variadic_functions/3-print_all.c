@@ -54,13 +54,13 @@ void print_all(const char * const format, ...)
 	unsigned int i = 0, j;
 	char *sep = "";
 
-	typedef struct printer
+	struct printer
 	{
 		char c;
 		void (*f)(va_list);
-	} printer_t;
+	};
 
-	printer_t p[] = {
+	struct printer p[] = {
 		{'c', print_char},
 		{'i', print_int},
 		{'f', print_float},
