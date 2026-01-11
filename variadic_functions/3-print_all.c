@@ -3,6 +3,11 @@
 #include <stdio.h>
 
 /**
+ * struct printer - associates a format specifier with a print function
+ */
+struct printer;
+
+/**
  * print_char - prints a character
  * @ap: argument list
  */
@@ -41,12 +46,6 @@ void print_string(va_list ap)
 		s = "(nil)";
 	printf("%s", s);
 }
-
-/**
- * struct printer - associates a format specifier with a print function
- * @c: format specifier character
- * @f: function pointer to the printing function
- */
 
 /**
  * print_all - prints anything
