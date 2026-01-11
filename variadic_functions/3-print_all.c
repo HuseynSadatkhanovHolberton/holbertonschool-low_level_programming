@@ -1,5 +1,4 @@
 #include "variadic_functions.h"
-#include <stdarg.h>
 #include <stdio.h>
 
 /**
@@ -35,33 +34,35 @@ void print_float(va_list ap)
  */
 void print_string(va_list ap)
 {
-	char *s = va_arg(ap, char *);
+	char *s;
 
+	s = va_arg(ap, char *);
 	if (s == NULL)
 		s = "(nil)";
 	printf("%s", s);
 }
 
 /**
- * print_all - prints anything
- * @format: list of argument types passed to the function
+ * print_all - prints anything based on format string
+ * @format: list of argument types
  *
- * Return: nothing
+ * Description: 'c' = char, 'i' = int, 'f' = float, 's' = string
+ * Any other character is ignored. Prints a newline at the end.
  */
 void print_all(const char * const format, ...)
 {
 	va_list ap;
-	unsigned int i = 0, j;
-	char *sep = "";
-
-	/* struct printer defined and documented in variadic_functions.h */
-	struct printer p[] = {
+	unsigned int i, j;
+	char *sep;
+	printer_t p[] = {
 		{'c', print_char},
 		{'i', print_int},
 		{'f', print_float},
 		{'s', print_string}
 	};
 
+	i = 0;
+	sep = "";
 	va_start(ap, format);
 
 	while (format && format[i])
