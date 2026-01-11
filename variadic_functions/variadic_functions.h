@@ -3,6 +3,17 @@
 
 #include <stdarg.h>
 
+/**
+ * struct printer - maps a format specifier to a print function
+ * @c: format specifier character
+ * @f: function pointer to print the argument
+ */
+struct printer
+{
+	char c;
+	void (*f)(va_list);
+};
+
 /* Task 0 */
 int sum_them_all(const unsigned int n, ...);
 
