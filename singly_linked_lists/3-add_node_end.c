@@ -4,32 +4,33 @@
 
 /**
  * add_node_end - adds a new node at the end of a list_t list
- * @head: pointer to pointer to the first node
+ * @head: pointer to pointer to first node
  * @str: string to store in the new node
  *
- * Return: address of the new node, or NULL if it failed
+ * Return: pointer to new node, or NULL if failed
  */
 list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *new_node, *current;
+	list_t *new_node;
+	list_t *current;
 	unsigned int len = 0;
 
 	if (str == NULL)
-		return (NULL);
+		return NULL;
 
 	/* Allocate memory for new node */
 	new_node = malloc(sizeof(list_t));
 	if (new_node == NULL)
-		return (NULL);
+		return NULL;
 
 	new_node->str = strdup(str);
 	if (new_node->str == NULL)
 	{
 		free(new_node);
-		return (NULL);
+		return NULL;
 	}
 
-	/* Calculate string length manually */
+	/* Compute string length */
 	while (str[len] != '\0')
 		len++;
 	new_node->len = len;
@@ -39,9 +40,16 @@ list_t *add_node_end(list_t **head, const char *str)
 	if (*head == NULL)
 	{
 		*head = new_node;
-		return (new_node);
+		return new_node;
 	}
 
-	/* Otherwise, traverse to the last node */
-	current =
+	/* Traverse to last node */
+	current = *head;          /* <-- THIS LINE MUST BE COMPLETE */
+	while (current->next != NULL)
+		current = current->next;
+
+	current->next = new_node;
+
+	return new_node;
+}
 
