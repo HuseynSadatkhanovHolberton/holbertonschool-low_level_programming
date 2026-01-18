@@ -16,18 +16,18 @@ list_t *add_node_end(list_t **head, const char *str)
 	unsigned int len = 0;
 
 	if (str == NULL)
-		return (NULL);
+		return NULL;
 
 	/* Allocate memory for new node */
 	new_node = malloc(sizeof(list_t));
 	if (new_node == NULL)
-		return (NULL);
+		return NULL;
 
 	new_node->str = strdup(str);
 	if (new_node->str == NULL)
 	{
 		free(new_node);
-		return (NULL);
+		return NULL;
 	}
 
 	/* Compute string length */
@@ -40,11 +40,16 @@ list_t *add_node_end(list_t **head, const char *str)
 	if (*head == NULL)
 	{
 		*head = new_node;
-		return (new_node);
+		return new_node;
 	}
 
 	/* Traverse to last node */
-	current = *head;
+	current = *head;  
 	while (current->next != NULL)
-		current = cur
+		current = current->next;
+
+	current->next = new_node;
+
+	return new_node;
+}
 
