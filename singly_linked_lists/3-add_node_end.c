@@ -43,10 +43,5 @@ list_t *add_node_end(list_t **head, const char *str)
 	}
 
 	/* Otherwise, traverse to the last node */
-	current = *head;
-	while (current->next != NULL)
-		current = current->next;
-
-	current->next = new_node;
-	return
+	current =
 
