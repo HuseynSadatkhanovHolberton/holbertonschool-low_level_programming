@@ -22,6 +22,7 @@ size_t dlistint_len(const dlistint_t *h);              /* Task 1 */
 dlistint_t *add_dnodeint(dlistint_t **head, const int n);       /* Task 2 */
 dlistint_t *add_dnodeint_end(dlistint_t **head, const int n);   /* Task 3 */
 void free_dlistint(dlistint_t *head);                  /* Task 4 */
+dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index); /* Task 5 */
 
 #endif /* LISTS_H */
 
