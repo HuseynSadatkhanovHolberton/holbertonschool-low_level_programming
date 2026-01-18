@@ -16,11 +16,12 @@ typedef struct list_s
 	struct list_s *next;
 } list_t;
 
-/* Function prototypes for Tasks 0–3 */
+/* Function prototypes for Tasks 0–4 */
 size_t print_list(const list_t *h);                  /* Task 0 */
 size_t list_len(const list_t *h);                    /* Task 1 */
 list_t *add_node(list_t **head, const char *str);   /* Task 2 */
 list_t *add_node_end(list_t **head, const char *str); /* Task 3 */
+void free_list(list_t *head);                        /* Task 4 */
 
 #endif /* LISTS_H */
 
