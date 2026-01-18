@@ -25,6 +25,7 @@ void free_dlistint(dlistint_t *head);                  /* Task 4 */
 dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index); /* Task 5 */
 int sum_dlistint(dlistint_t *head);                    /* Task 6 */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n); /* Task 7 */
+int delete_dnodeint_at_index(dlistint_t **head, unsigned int index);           /* Task 8 */
 
 #endif /* LISTS_H */
 
