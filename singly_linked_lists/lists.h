@@ -4,10 +4,10 @@
 #include <stddef.h>
 
 /**
- * struct list_s - singly linked list
+ * struct list_s - singly linked list node
  * @str: string (malloc'ed string)
  * @len: length of the string
- * @next: points to the next node
+ * @next: pointer to the next node
  */
 typedef struct list_s
 {
@@ -17,8 +17,9 @@ typedef struct list_s
 } list_t;
 
 /* Function prototypes */
-size_t print_list(const list_t *h);
-size_t list_len(const list_t *h);
+size_t print_list(const list_t *h);        /* Task 0 */
+size_t list_len(const list_t *h);          /* Task 1 */
+list_t *add_node(list_t **head, const char *str); /* Task 2 */
 
 #endif /* LISTS_H */
 
