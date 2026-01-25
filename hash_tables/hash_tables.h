@@ -7,9 +7,11 @@
 
 /**
  * struct hash_node_s - Node of a hash table
+ *
  * @key: The key, string
+ * The key is unique in the HashTable
  * @value: The value corresponding to a key
- * @next: Pointer to the next node (for collisions)
+ * @next: A pointer to the next node of the List
  */
 typedef struct hash_node_s
 {
@@ -20,8 +22,10 @@ typedef struct hash_node_s
 
 /**
  * struct hash_table_s - Hash table data structure
+ *
  * @size: The size of the array
- * @array: Array of pointers to hash_node_t
+ * @array: An array of size @size
+ * Each cell of this array is a pointer to the first node of a linked list
  */
 typedef struct hash_table_s
 {
@@ -29,23 +33,26 @@ typedef struct hash_table_s
 	hash_node_t **array;
 } hash_table_t;
 
-/* Task 0 */
+/* 0. hash_table_create.c */
 hash_table_t *hash_table_create(unsigned long int size);
 
-/* Task 1 */
+/* 1. djb2.c */
 unsigned long int hash_djb2(const unsigned char *str);
 
-/* Task 2 */
+/* 2. key_index.c */
 unsigned long int key_index(const unsigned char *key, unsigned long int size);
 
-/* Task 3 */
+/* 3. hash_table_set.c */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value);
 
-/* Task 4 */
+/* 4. hash_table_get.c */
 char *hash_table_get(const hash_table_t *ht, const char *key);
 
-/* Task 5 */
+/* 5. hash_table_print.c */
 void hash_table_print(const hash_table_t *ht);
+
+/* 6. hash_table_delete.c */
+void hash_table_delete(hash_table_t *ht);
 
 #endif /* HASH_TABLES_H */
 
