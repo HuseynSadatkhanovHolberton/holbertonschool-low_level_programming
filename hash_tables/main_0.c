@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "hash_tables.h"  /* Needed for hash_djb2 prototype */
+#include "hash_tables.h" /* Must include for hash_djb2 prototype */
 
 /**
  * main - check the code
@@ -13,8 +13,10 @@ int main(void)
 
 	s = "cisfun";
 	printf("%lu\n", hash_djb2((unsigned char *)s));
+
 	s = "Don't forget to tweet today";
 	printf("%lu\n", hash_djb2((unsigned char *)s));
+
 	s = "98";
 	printf("%lu\n", hash_djb2((unsigned char *)s));
 
