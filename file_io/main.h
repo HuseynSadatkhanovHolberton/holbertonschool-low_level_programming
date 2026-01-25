@@ -3,8 +3,13 @@
 
 #include <sys/types.h>
 
-/* Function prototypes */
+/* Task 0 */
 ssize_t read_textfile(const char *filename, size_t letters);
+
+/* Task 1 */
+int create_file(const char *filename, char *text_content);
+
+/* Provided helper */
 int _putchar(char c);
 
 #endif /* MAIN_H */
