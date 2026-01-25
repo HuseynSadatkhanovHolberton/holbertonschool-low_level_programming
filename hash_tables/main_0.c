@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "hash_tables.h"  /* Include the prototype of hash_djb2 */
+#include "hash_tables.h"  /* Needed for hash_djb2 prototype */
 
 /**
  * main - check the code
