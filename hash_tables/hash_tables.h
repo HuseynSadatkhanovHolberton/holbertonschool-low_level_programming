@@ -3,14 +3,13 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /**
  * struct hash_node_s - Node of a hash table
- *
  * @key: The key, string
- * The key is unique in the HashTable
  * @value: The value corresponding to a key
- * @next: A pointer to the next node of the List
+ * @next: Pointer to the next node (for collisions)
  */
 typedef struct hash_node_s
 {
@@ -21,10 +20,8 @@ typedef struct hash_node_s
 
 /**
  * struct hash_table_s - Hash table data structure
- *
  * @size: The size of the array
- * @array: An array of size @size
- * Each cell of this array is a pointer to the first node of a linked list
+ * @array: Array of pointers to hash_node_t
  */
 typedef struct hash_table_s
 {
@@ -32,12 +29,23 @@ typedef struct hash_table_s
 	hash_node_t **array;
 } hash_table_t;
 
-/* Prototypes */
+/* Task 0 */
 hash_table_t *hash_table_create(unsigned long int size);
+
+/* Task 1 */
 unsigned long int hash_djb2(const unsigned char *str);
+
+/* Task 2 */
 unsigned long int key_index(const unsigned char *key, unsigned long int size);
+
+/* Task 3 */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value);
+
+/* Task 4 */
 char *hash_table_get(const hash_table_t *ht, const char *key);
+
+/* Task 5 */
+void hash_table_print(const hash_table_t *ht);
 
 #endif /* HASH_TABLES_H */
 
