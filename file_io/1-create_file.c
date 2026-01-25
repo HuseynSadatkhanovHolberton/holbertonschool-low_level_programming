@@ -21,17 +21,15 @@ int create_file(const char *filename, char *text_content)
 
 	if (text_content != NULL)
 	{
-		/* calculate length of text_content */
 		while (text_content[len] != '\0')
 			len++;
 	}
 
-	/* open file: create if not exists, truncate if exists, rw------- permissions */
-	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
+	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC,
+		  S_IRUSR | S_IWUSR);
 	if (fd == -1)
 		return (-1);
 
-	/* write text_content if it exists */
 	if (len > 0)
 	{
 		w_bytes = write(fd, text_content, len);
@@ -43,6 +41,5 @@ int create_file(const char *filename, char *text_content)
 	}
 
 	close(fd);
-	return (1);
-}
+	return (1
 
