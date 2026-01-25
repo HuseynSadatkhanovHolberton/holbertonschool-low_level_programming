@@ -1,20 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "hash_tables.h" /* MUST include for hash_djb2 prototype */
+#include "hash_tables.h" /* needed for hash_djb2 & key_index */
 
 int main(void)
 {
-    char *s;
+	char *s;
+	unsigned long int hash_table_array_size;
 
-    s = "cisfun";
-    printf("%lu\n", hash_djb2((unsigned char *)s));
+	hash_table_array_size = 1024;
 
-    s = "Don't forget to tweet today";
-    printf("%lu\n", hash_djb2((unsigned char *)s));
+	s = "cisfun";
+	printf("%lu\n", hash_djb2((unsigned char *)s));
+	printf("%lu\n", key_index((unsigned char *)s, hash_table_array_size));
 
-    s = "98";
-    printf("%lu\n", hash_djb2((unsigned char *)s));
+	s = "Don't forget to tweet today";
+	printf("%lu\n", hash_djb2((unsigned char *)s));
+	printf("%lu\n", key_index((unsigned char *)s, hash_table_array_size));
 
-    return (EXIT_SUCCESS);
+	s = "98";
+	printf("%lu\n", hash_djb2((unsigned char *)s));
+	printf("%lu\n", key_index((unsigned char *)s, hash_table_array_size));
+
+	return (EXIT_SUCCESS);
 }
 
